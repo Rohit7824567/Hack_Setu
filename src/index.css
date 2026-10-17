@@ -1,0 +1,237 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-main: #060913;
+  --bg-card: rgba(11, 17, 33, 0.82);
+  --bg-card-hover: rgba(16, 25, 48, 0.9);
+  --border-subtle: rgba(56, 189, 248, 0.14);
+  --border-active: rgba(56, 189, 248, 0.45);
+}
+
+body {
+  background-color: var(--bg-main);
+  background-image: 
+    radial-gradient(circle at 10% 10%, rgba(6, 182, 212, 0.12) 0%, transparent 45%),
+    radial-gradient(circle at 90% 85%, rgba(239, 68, 68, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 50% 50%, rgba(30, 58, 138, 0.07) 0%, transparent 60%),
+    linear-gradient(to bottom, rgba(5, 8, 19, 0.5), #060913);
+  background-attachment: fixed;
+  color: #f1f5f9;
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Cyber Grid Pattern Overlay */
+.cyber-grid-bg {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(56, 189, 248, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(56, 189, 248, 0.03) 1px, transparent 1px);
+}
+
+/* Glassmorphism Panels */
+.glass-panel {
+  background: var(--bg-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-subtle);
+  border-radius: 18px;
+  box-shadow: 0 10px 35px -5px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.03) inset;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-panel:hover {
+  border-color: rgba(56, 189, 248, 0.28);
+}
+
+.glass-panel-glow-red {
+  border-color: rgba(239, 68, 68, 0.5);
+  box-shadow: 0 0 40px rgba(239, 68, 68, 0.22), 0 0 0 1px rgba(239, 68, 68, 0.3) inset;
+}
+
+.glass-panel-glow-green {
+  border-color: rgba(16, 185, 129, 0.5);
+  box-shadow: 0 0 35px rgba(16, 185, 129, 0.2), 0 0 0 1px rgba(16, 185, 129, 0.3) inset;
+}
+
+.glass-panel-glow-amber {
+  border-color: rgba(245, 158, 11, 0.5);
+  box-shadow: 0 0 35px rgba(245, 158, 11, 0.2), 0 0 0 1px rgba(245, 158, 11, 0.3) inset;
+}
+
+/* Buttons */
+.btn-primary {
+  background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+  color: #ffffff;
+  font-weight: 700;
+  border: 1px solid rgba(56, 189, 248, 0.45);
+  border-radius: 12px;
+  padding: 10px 22px;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #0369a1 0%, #0284c7 100%);
+  box-shadow: 0 0 25px rgba(56, 189, 248, 0.45);
+  transform: translateY(-1px);
+}
+
+.btn-emergency-1930 {
+  background: linear-gradient(135deg, #ef4444 0%, #b91c1c 100%);
+  color: #ffffff;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  border: 1px solid rgba(254, 202, 202, 0.5);
+  border-radius: 14px;
+  padding: 12px 24px;
+  cursor: pointer;
+  animation: pulse-danger 2s infinite;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  box-shadow: 0 4px 25px rgba(239, 68, 68, 0.45);
+  transition: all 0.2s;
+}
+
+.btn-emergency-1930:hover {
+  transform: scale(1.02);
+  box-shadow: 0 6px 35px rgba(239, 68, 68, 0.7);
+}
+
+@keyframes pulse-danger {
+  0% {
+    box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.6);
+  }
+  70% {
+    box-shadow: 0 0 0 16px rgba(239, 68, 68, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(239, 68, 68, 0);
+  }
+}
+
+/* In-text phrase highlights */
+.highlight-urgency {
+  background: rgba(245, 158, 11, 0.22);
+  color: #fef08a;
+  border: 1px solid rgba(245, 158, 11, 0.5);
+  border-radius: 6px;
+  padding: 1px 7px;
+  cursor: pointer;
+  font-weight: 700;
+  transition: all 0.15s;
+}
+.highlight-urgency:hover {
+  background: rgba(245, 158, 11, 0.35);
+  box-shadow: 0 0 12px rgba(245, 158, 11, 0.4);
+}
+
+.highlight-threat {
+  background: rgba(249, 115, 22, 0.22);
+  color: #fed7aa;
+  border: 1px solid rgba(249, 115, 22, 0.5);
+  border-radius: 6px;
+  padding: 1px 7px;
+  cursor: pointer;
+  font-weight: 700;
+  transition: all 0.15s;
+}
+.highlight-threat:hover {
+  background: rgba(249, 115, 22, 0.35);
+  box-shadow: 0 0 12px rgba(249, 115, 22, 0.4);
+}
+
+.highlight-credential {
+  background: rgba(239, 68, 68, 0.25);
+  color: #fee2e2;
+  border: 1px solid rgba(239, 68, 68, 0.6);
+  border-radius: 6px;
+  padding: 1px 7px;
+  cursor: pointer;
+  font-weight: 800;
+  animation: pulse-credential 2s infinite;
+}
+.highlight-credential:hover {
+  background: rgba(239, 68, 68, 0.4);
+  box-shadow: 0 0 15px rgba(239, 68, 68, 0.5);
+}
+
+@keyframes pulse-credential {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 10px rgba(239, 68, 68, 0.4);
+  }
+}
+
+.highlight-link {
+  background: rgba(168, 85, 247, 0.22);
+  color: #f5d0fe;
+  border: 1px solid rgba(168, 85, 247, 0.5);
+  border-radius: 6px;
+  padding: 1px 7px;
+  cursor: pointer;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.9em;
+}
+.highlight-link:hover {
+  background: rgba(168, 85, 247, 0.35);
+  box-shadow: 0 0 12px rgba(168, 85, 247, 0.4);
+}
+
+.highlight-verified {
+  background: rgba(16, 185, 129, 0.2);
+  color: #a7f3d0;
+  border: 1px solid rgba(16, 185, 129, 0.5);
+  border-radius: 6px;
+  padding: 1px 7px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+/* Modals */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(2, 6, 18, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+
+.modal-content {
+  max-height: 90vh;
+  overflow-y: auto;
+  width: 100%;
+  max-width: 780px;
+  animation: slide-up 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
